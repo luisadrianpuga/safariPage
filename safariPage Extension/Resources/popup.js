@@ -8,4 +8,5 @@ let response = await browser.tabs.sendMessage(tabs[0].id, {update: "please"});
 
 titleElement.textContent = response?.title;
 descriptionElement.textContent = response.description;
-imageElement.src = response?.image;
+if (response?.image !== undefined)
+    imageElement.src = response?.image;
