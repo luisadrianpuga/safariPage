@@ -3,11 +3,16 @@
 }
 
 body {
-    width: 100px;
+    min-width: 300px;
     padding: 10px;
 
     font-family: system-ui;
     text-align: center;
+}
+/**Responsive image*/
+img {
+    width: 100%;
+    height: auto;
 }
 
 @media (prefers-color-scheme: dark) {

@@ -1,7 +1,15 @@
-browser.runtime.sendMessage({ greeting: "hello" }).then((response) => {
-    console.log("Received response: ", response);
-});
+let titleContent = document.querySelector('meta[property="og:title"]')?.content;
+let descriptionContent = document.querySelector('meta[property="og:description"]')?.content;
+let imageURL = document.querySelector('meta[property="og:image"]')?.content;
+
 
 browser.runtime.onMessage.addListener((request, sender, sendResponse) => {
-    console.log("Received request: ", request);
+    if (request.update != "please")
+        return;
+    
+    sendResponse({
+        title: titleContent,
+        description: descriptionContent,
+        image: imageURL
+    });
 });
